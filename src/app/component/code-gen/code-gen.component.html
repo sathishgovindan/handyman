@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-md-12">
+        <input type="text" [(ngModel)]= "textValue" />        
+        <input type="button" (click)="convertCamelCase()" value="camelCase" />
+        <input type="button" (click)="toPascalCase()" value="PascalCase" />
+        <input type="button" (click)="convertSentence()" value="Sentence" />
+        <input type="button" (click)="toTitleCase()" value="Title Case" />             
+        <input type="button" (click)="convertLowerCase()" value="lower case" />
+        <input type="button" (click)="convertUpperCase()" value="UPPER CASE" />
+        <input type="button" (click)="convertSnakeCase()" value="snake_case" />
+        <input type="button" (click)="toHyphenCase()" value="hyphen-case" />           
+    </div>
+</div>
+<div class="row">   
+        <div class="col-md-12">
+            <input type="button" (click)="forLoop('of')" value="For of Loop" />
+            <input type="button" (click)="forLoop('in')" value="For in Loop" />
+        </div>
+    </div>
+<div class="row">   
+    <div class="col-md-12 newlines">
+        <span>{{handyResult}}</span>        
+    </div>
+</div>
