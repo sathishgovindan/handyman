@@ -1,24 +1,84 @@
 <div class="row">
-    <div class="col-md-12">
-        <input type="text" [(ngModel)]= "textValue" />        
-        <input type="button" (click)="convertCamelCase()" value="camelCase" />
-        <input type="button" (click)="toPascalCase()" value="PascalCase" />
-        <input type="button" (click)="convertSentence()" value="Sentence" />
-        <input type="button" (click)="toTitleCase()" value="Title Case" />             
-        <input type="button" (click)="convertLowerCase()" value="lower case" />
-        <input type="button" (click)="convertUpperCase()" value="UPPER CASE" />
-        <input type="button" (click)="convertSnakeCase()" value="snake_case" />
-        <input type="button" (click)="toHyphenCase()" value="hyphen-case" />           
+    <div class="col-md-4">
+        <input type="text" class="form-control" [(ngModel)]="textValue" />
     </div>
-</div>
-<div class="row">   
-        <div class="col-md-12">
-            <input type="button" (click)="forLoop('of')" value="For of Loop" />
-            <input type="button" (click)="forLoop('in')" value="For in Loop" />
+    <div class="col-md-4">
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Case Conversion
+                  </button>
+                </h2>
+              </div>
+          
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="btn-group-vertical">
+                        <input class="btn btn-primary" type="button" (click)="convertCamelCase()" value="camelCase >>" />
+                        <input class="btn btn-primary" type="button" (click)="toPascalCase()" value="PascalCase >>" />
+                        <input class="btn btn-primary" type="button" (click)="convertSentence()" value="Sentence >>" />
+                        <input class="btn btn-primary" type="button" (click)="toTitleCase()" value="Title Case >>" />
+                        <input class="btn btn-primary" type="button" (click)="convertLowerCase()" value="lower case >>" />
+                        <input class="btn btn-primary" type="button" (click)="convertUpperCase()" value="UPPER CASE >>" /> 
+                        <input class="btn btn-primary" type="button" (click)="convertSnakeCase()" value="snake_case >>" />
+                        <input class="btn btn-primary" type="button" (click)="toHyphenCase()" value="hyphen-case >>" />
+                        <input class="btn btn-primary" type="button" (click)="convertSentence()" value="Sentence >>" />
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Array Loops
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="btn-group-vertical">
+                        <input class="btn btn-primary" type="button" (click)="forLoop('of')" value="For of Loop >>" />
+                        <input class="btn btn-primary" type="button" (click)="forLoop('for')" value="For Loop >>" />
+                        <input class="btn btn-primary" type="button" (click)="forLoop('each')" value="For Each Loop >>" />                
+                        <input class="btn btn-primary" type="button" (click)="forLoop('in')" value="For in Loop >>" />
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Object Loops
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="btn-group-vertical">
+                        <input class="btn btn-primary" type="button" (click)="forOfObject('Values')" value="For of Object Values >>" />
+                        <input class="btn btn-primary" type="button" (click)="forOfObject('Keys')" value="For of Object Keys >>" />
+                        <input class="btn btn-primary" type="button" (click)="forOfObject('Entries')" value="For of Object Entries >>" /> 
+                        <input class="btn btn-primary" type="button" (click)="forEachOfObject('Entries')" value="For Each of Object Entries >>" />            
+                        <input class="btn btn-primary" type="button" (click)="forEachOfObject('Values')" value="For Each of Object Values >>" />            
+                        <input class="btn btn-primary" type="button" (click)="forEachOfObject('Keys')" value="For Each of Object Keys >>" />
+                    </div>
+                </div>
+              </div>
+            </div>
         </div>
     </div>
+    <div class="col-md-4">
+        <input type="text" class="form-control" [(ngModel)]="textOutValue" />
+    </div>
+</div>
 <div class="row">   
     <div class="col-md-12 newlines">
         <span>{{handyResult}}</span>        
     </div>
 </div>
+
+
