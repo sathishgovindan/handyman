@@ -1,6 +1,28 @@
 <div class="row">
-    <div class="col-md-4">
-        <input type="text" class="form-control" [(ngModel)]="textValue" />
+    <div class="col-md-8">
+        <div class="form-group">
+            <label for="inputText">Your text:</label>
+            <input type="text" class="form-control" [(ngModel)]="textValue" id="inputText" />
+        </div>
+        <div class="form-group">
+            <label for="handyResult">Handy Result:</label>
+            <div class="code" id="handyResult">
+                <pre>
+                  <span *ngIf="handyResult != ''" class="line-number">
+                    <span *ngFor='let in of counter(lineNumber) ;let i = index'>{{i}}</span>            
+                  </span>
+                  <span id='code2'>{{handyResult}}</span>
+                  <span *ngIf="handyResult != ''" class="cl"></span>
+                </pre>
+                <button class="codeButton" (click)="codeCopy('code2')">Copy</button>
+            </div>
+        </div>
+
+        
+
+        <!-- <input type="text" class="form-control" [(ngModel)]="textOutValue" /> -->
+     
+
     </div>
     <div class="col-md-4">
         <div class="accordion" id="accordionExample">
@@ -70,15 +92,8 @@
               </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-4">
-        <input type="text" class="form-control" [(ngModel)]="textOutValue" />
-    </div>
+    </div>    
 </div>
-<div class="row">   
-    <div class="col-md-12 newlines">
-        <span>{{handyResult}}</span>        
-    </div>
-</div>
+
 
 

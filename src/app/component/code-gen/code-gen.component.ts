@@ -10,7 +10,7 @@ export class CodeGenComponent implements OnInit {
   textValue:string = '';
   handyResult:string = '';
   textOutValue:string = '';
-
+  lineNumber:number = 0;
   constructor() { 
    
   }
@@ -44,6 +44,7 @@ export class CodeGenComponent implements OnInit {
         this.handyResult = `for (index = 0; index < ${array}.length; ++index) {\n    //your logic \n}`;
       }
     }
+    this.codeView();   
   }
 
   forOfObject(type){
@@ -59,6 +60,7 @@ export class CodeGenComponent implements OnInit {
         this.handyResult = `for (const value of Object.values(${this.textOutValue})) {\n    //your logic\n}`;
       }
     }
+    this.codeView();   
   }
 
   forEachOfObject(type){
@@ -74,6 +76,7 @@ export class CodeGenComponent implements OnInit {
         this.handyResult = `Object.values(${this.textOutValue}).forEach((value) => { \n    //your logic\n});`;
       }
     }
+    this.codeView();   
   }  
 
   convertSnakeCase(){
@@ -141,5 +144,48 @@ export class CodeGenComponent implements OnInit {
       this.textOutValue = this.textValue;
       this.textOutValue = _.camelCase(this.textOutValue); 
     }
+  }
+
+  counter(i: number) {
+    return new Array(i);
+  }
+
+  codeView() {
+    this.lineNumber = this.handyResult.split(/\n/).length;
+  }
+  
+  changeCodeFontSize(size) {
+    if (size == 0) { return }
+    var elements = document.getElementsByTagName('pre')
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].style['font-size'] = size + 'px'
+    }
+  }
+  
+  codeCopy(id) {
+    var element = document.getElementById(id)
+    var text = element.innerHTML
+    //text.select
+    element.focus
+  
+    try {
+      document.execCommand('copy')
+      this.copyCodeToClipboard(text, id)
+    } catch (err) {
+      console.error('Something went wrong to copy to clipboard', err)
+    }
+  }
+  
+  copyCodeToClipboard(text, id) {
+    if (!navigator.clipboard) {
+      console.warn('Re-try')
+      this.codeCopy(id)
+      return
+    }
+    navigator.clipboard.writeText(text).then(function () {
+      // done
+    }, function (err) {
+      console.error('Could not copy text: ', err)
+    })
   }
 }
