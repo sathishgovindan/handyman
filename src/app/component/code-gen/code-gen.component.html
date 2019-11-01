@@ -1,30 +1,22 @@
 <div class="row">
-    <div class="col-md-8">
-        <div class="form-group">
-            <label for="inputText">Your text:</label>
-            <input type="text" class="form-control" [(ngModel)]="textValue" id="inputText" />
+    <div class="col-md-9 margin-top-10">
+        <div class="form-group col-md-12">
+            <textarea class="form-control" placeholder="Your text..." [(ngModel)]="textValue"></textarea>
+        </div>        
+        <div class="form-group col-md-12 position-relative" *ngIf="textOutValue != ''">
+            <pre><code [highlight]="textOutValue"></code></pre>
+            <button type="button" (click)="copyText()" class="btn btn-default btn-copy js-tooltip js-copy"  title="Copy to clipboard">                
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M17,9H7V7H17M17,13H7V11H17M14,17H7V15H14M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z" /></svg>
+            </button>            
         </div>
-        <div class="form-group">
-            <label for="handyResult">Handy Result:</label>
-            <div class="code" id="handyResult">
-                <pre>
-                  <span *ngIf="handyResult != ''" class="line-number">
-                    <span *ngFor='let in of counter(lineNumber) ;let i = index'>{{i}}</span>            
-                  </span>
-                  <span id='code2'>{{handyResult}}</span>
-                  <span *ngIf="handyResult != ''" class="cl"></span>
-                </pre>
-                <button class="codeButton" (click)="codeCopy('code2')">Copy</button>
-            </div>
+        <div class="form-group col-md-12 position-relative" *ngIf="handyResult != ''">
+            <pre><code [highlight]="handyResult"></code></pre>
+            <button type="button" (click)="copyText()" class="btn btn-default btn-copy js-tooltip js-copy"  title="Copy to clipboard">                
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M17,9H7V7H17M17,13H7V11H17M14,17H7V15H14M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z" /></svg>
+            </button>            
         </div>
-
-        
-
-        <!-- <input type="text" class="form-control" [(ngModel)]="textOutValue" /> -->
-     
-
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="accordion" id="accordionExample">
             <div class="card">
               <div class="card-header" id="headingOne">
@@ -34,19 +26,19 @@
                   </button>
                 </h2>
               </div>
-          
+
               <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
                     <div class="btn-group-vertical">
-                        <input class="btn btn-primary" type="button" (click)="convertCamelCase()" value="camelCase >>" />
-                        <input class="btn btn-primary" type="button" (click)="toPascalCase()" value="PascalCase >>" />
-                        <input class="btn btn-primary" type="button" (click)="convertSentence()" value="Sentence >>" />
-                        <input class="btn btn-primary" type="button" (click)="toTitleCase()" value="Title Case >>" />
-                        <input class="btn btn-primary" type="button" (click)="convertLowerCase()" value="lower case >>" />
-                        <input class="btn btn-primary" type="button" (click)="convertUpperCase()" value="UPPER CASE >>" /> 
-                        <input class="btn btn-primary" type="button" (click)="convertSnakeCase()" value="snake_case >>" />
-                        <input class="btn btn-primary" type="button" (click)="toHyphenCase()" value="hyphen-case >>" />
-                        <input class="btn btn-primary" type="button" (click)="convertSentence()" value="Sentence >>" />
+                        <input class="btn btn-primary" type="button" (click)="convertCamelCase()" value="camelCase" />
+                        <input class="btn btn-primary" type="button" (click)="toPascalCase()" value="PascalCase" />
+                        <input class="btn btn-primary" type="button" (click)="convertSentence()" value="Sentence" />
+                        <input class="btn btn-primary" type="button" (click)="toTitleCase()" value="Title Case" />
+                        <input class="btn btn-primary" type="button" (click)="convertLowerCase()" value="lower case" />
+                        <input class="btn btn-primary" type="button" (click)="convertUpperCase()" value="UPPER CASE" />
+                        <input class="btn btn-primary" type="button" (click)="convertSnakeCase()" value="snake_case" />
+                        <input class="btn btn-primary" type="button" (click)="toHyphenCase()" value="hyphen-case" />
+                        <input class="btn btn-primary" type="button" (click)="convertSentence()" value="Sentence" />
                     </div>
                 </div>
               </div>
@@ -62,10 +54,10 @@
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
                     <div class="btn-group-vertical">
-                        <input class="btn btn-primary" type="button" (click)="forLoop('of')" value="For of Loop >>" />
-                        <input class="btn btn-primary" type="button" (click)="forLoop('for')" value="For Loop >>" />
-                        <input class="btn btn-primary" type="button" (click)="forLoop('each')" value="For Each Loop >>" />                
-                        <input class="btn btn-primary" type="button" (click)="forLoop('in')" value="For in Loop >>" />
+                        <input class="btn btn-primary" type="button" (click)="forLoop('of')" value="For of Loop" />
+                        <input class="btn btn-primary" type="button" (click)="forLoop('for')" value="For Loop" />
+                        <input class="btn btn-primary" type="button" (click)="forLoop('each')" value="For Each Loop" />
+                        <input class="btn btn-primary" type="button" (click)="forLoop('in')" value="For in Loop" />
                     </div>
                 </div>
               </div>
@@ -81,18 +73,18 @@
               <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body">
                     <div class="btn-group-vertical">
-                        <input class="btn btn-primary" type="button" (click)="forOfObject('Values')" value="For of Object Values >>" />
-                        <input class="btn btn-primary" type="button" (click)="forOfObject('Keys')" value="For of Object Keys >>" />
-                        <input class="btn btn-primary" type="button" (click)="forOfObject('Entries')" value="For of Object Entries >>" /> 
-                        <input class="btn btn-primary" type="button" (click)="forEachOfObject('Entries')" value="For Each of Object Entries >>" />            
-                        <input class="btn btn-primary" type="button" (click)="forEachOfObject('Values')" value="For Each of Object Values >>" />            
-                        <input class="btn btn-primary" type="button" (click)="forEachOfObject('Keys')" value="For Each of Object Keys >>" />
+                        <input class="btn btn-primary" type="button" (click)="forOfObject('Values')" value="For of Object Values" />
+                        <input class="btn btn-primary" type="button" (click)="forOfObject('Keys')" value="For of Object Keys" />
+                        <input class="btn btn-primary" type="button" (click)="forOfObject('Entries')" value="For of Object Entries" />
+                        <input class="btn btn-primary" type="button" (click)="forEachOfObject('Entries')" value="For Each of Object Entries" />
+                        <input class="btn btn-primary" type="button" (click)="forEachOfObject('Values')" value="For Each of Object Values" />
+                        <input class="btn btn-primary" type="button" (click)="forEachOfObject('Keys')" value="For Each of Object Keys" />
                     </div>
                 </div>
               </div>
             </div>
         </div>
-    </div>    
+    </div>
 </div>
 
 

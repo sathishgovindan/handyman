@@ -1,86 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
-.newlines {
-    white-space: pre-wrap;
-}
+@import '~highlight.js/styles/github.css';
 
+.icon {
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+  }
 
-pre {
-    background: #f4f4f4;
-    border: 1px solid #ddd;
-    border-left: 3px solid #f36d33;
-    color: #666;
-    page-break-inside: avoid;
-    font: normal normal 14px/16px "Courier New",Courier,Monospace;
-    line-height: 1.0;
-    margin-bottom: 1.6em;
-    max-width: 100%;
-    padding: .5em 1em;
-    display: block;
-    word-wrap: break-word;
+  .btn-copy{
+    position: absolute; 
+    top:0px; 
+    right: 14px; 
+    padding: 0px 3px;
+  }
 
-    margin-left: 30px;
-    overflow: auto;
-    overflow-x: auto;
-    white-space: pre-wrap;
-    counter-reset: line;
-}
+  .margin-top-10{
+      margin-top: 10px;
+  }
 
-pre:hover,
-pre:focus {
-    /* what ever action */
-    /* this is just example */
-    border-left: 3px solid #338df3;
-}
-
-div.code
-{
-	position: relative;
-}
-
-pre + button
-{
-	position: absolute;
-	top: 0;
-	right: 0;
-}
-
-pre .line-number {
-    float: left;
-    margin: 0 1em 0 -1em;
-    border-right: 1px solid;
-    text-align: right;
-    width: 2.25em;    
-}
-
-pre .line-number span {
-    display: block;
-    padding: 0 .5em 0 1em;
-    width: 0.75em;
-}
-
-pre .cl {
-    display: block;
-    clear: both;
-}
-
-.codeButton {
-    background-color: transparent;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	border-radius: 2x;
-	border: 1px solid;
-	display: inline-block;
-	cursor: pointer;
-	color: #000;
-	font-family: Arial;
-	font-size: 14px;
-	padding: 2px 2px;
-    text-decoration: none;
-    margin: 2px 2px;
-}
-.codeButton:hover  {
-    background-color: transparent;
-}
-.codeButton:active {
-	top: 1px;
-}
+  .position-relative{
+    position: relative;
+  }
